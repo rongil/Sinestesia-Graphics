@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- JQuery currently used only for width method. If that is changed it can be removed. -->
+    <script defer src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.10/d3.min.js"></script>
+    <script defer src="sinestesia_graphics.js"></script>
+    <style>
+    html, body {height: 100%; margin: 0}
+    svg {height: 100%; width: 100%;}
+    </style>
+  </head>
+  <body>
+    <svg></svg>
+    <!--THIS SCRIPT IS ONLY FOR TESTING PURPOSES.
+        THE ACTUAL SCRIPT IS IN THE JS FILE.-->
+    <script>
+    var currentIteration = 0,
+      numOfIterations = 7,
+      period = 1000,
+      wordArray = [
+        "Words like violence break the silence",
+        "Come crashing in into my little world",
+        "Painful to me, pierce right through me",
+        "Can't you understand, oh my little girl?",
+        "All I ever wanted, all I ever needed",
+        "Is here in my arms",
+        "Words are very unnecessary",
+        "They can only do harm"
+      ],
+      arrSize = wordArray.length,
+      interval = setInterval(function () {
+        randomDataValue = ((Math.random() * 2) - 1).toFixed(4);
+        draw.scrollingText(
+          wordArray[currentIteration % arrSize].toUpperCase(),
+          +randomDataValue,
+          {setSync: true}
+        );
+        draw.ripplingCircle(+randomDataValue, {getSync: true});
+        if (++currentIteration > numOfIterations) {clearInterval(interval);}
+      }, period);
+    </script>
+    <!--THIS SCRIPT IS ONLY FOR TESTING PURPOSES.-->
+
+  </body>
+</html>
