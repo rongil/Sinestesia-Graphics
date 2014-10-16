@@ -1,4 +1,4 @@
 Sinestesia-Graphics
 ===================
 
-Music Visualizer
+Basic demo of graphics for Sinestesia Music Visualizer.
